@@ -32,4 +32,6 @@ typedef struct
 MuStr *         mu_str_append             (MuStr      *str,
                                            const char *append);
 
+void            mu_str_free               (MuStr *str);
+
 MuStr *         mu_str_new                (const char *init);

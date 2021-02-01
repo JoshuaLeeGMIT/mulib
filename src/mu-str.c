@@ -61,6 +61,16 @@ mu_str_append (MuStr      *str,
   return str;
 }
 
+void
+mu_str_free (MuStr *str)
+{
+  if (str == NULL)
+    return;
+
+  free (str->str);
+  free (str);
+}
+
 MuStr *
 mu_str_new (const char *init)
 {

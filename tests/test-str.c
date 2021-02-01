@@ -33,6 +33,8 @@ new_test (void)
 
   mu_assert ("new_test fail", !strcmp (str->str, "Hello, world!"));
 
+  mu_str_free (str);
+
   return NULL;
 }
 
@@ -45,6 +47,8 @@ append_test (void)
   str = mu_str_append (str, "world!");
 
   mu_assert ("append_test fail", !strcmp (str->str, "Hello, world!"));
+
+  mu_str_free (str);
 
   return NULL;
 }
