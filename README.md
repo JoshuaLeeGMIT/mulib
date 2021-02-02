@@ -28,6 +28,7 @@ as its leading design consideration.
 
 What to do if `malloc()` returns `NULL`? `µlib` chooses the segfault strategy.
 It doesn't check the return value of internal `malloc()` calls. As a result,
+your program will crash if `malloc()` returns `NULL`.
 
 ### Features
 
@@ -57,4 +58,3 @@ meson install
 
 Each header is designed to be used independent of the rest of the library. For
 example, to make use of `MuStr`, `#include <mu-str.h>` in your application.
-your program will crash if `malloc()` returns `NULL`.
