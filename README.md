@@ -46,8 +46,8 @@ with C easier. These could include:
 `µlib` has no dependencies outside of the C standard library. Currently, it's
 tested with `glibc` and `gcc` on arm64 Linux.
 
-`µlib` uses the [Meson](mesonbuild.org) build system. To build it, navigate to
-the root directory and run the following commands:
+`µlib` uses the [Meson](https://mesonbuild.com/) build system. To build it,
+navigate to the root directory and run the following commands:
 
 ```
 meson builddir
