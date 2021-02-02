@@ -15,4 +15,3 @@ str_test = executable('str', 'test-str.c',
 )
 
 test('mu-str tests', str_test)
-
