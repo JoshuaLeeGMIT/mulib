@@ -9,8 +9,8 @@ project('mulib', 'c',
 
 add_project_arguments(
   [
-  '-I' + meson.build_root(),
-  '-Wno-unused-parameter'
+    '-I' + meson.build_root(),
+    '-Wno-unused-parameter'
   ],
   language: 'c'
 )
