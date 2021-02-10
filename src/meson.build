@@ -21,7 +21,7 @@ version_conf.set('MAJOR_VERSION', MAJOR_VERSION)
 version_conf.set('MINOR_VERSION', MINOR_VERSION)
 version_conf.set('MICRO_VERSION', MICRO_VERSION)
 
-mulib_lib = shared_library('mulib-' + api_version,
+mulib = shared_library('mulib-' + api_version,
   mulib_src,
   install: true,
 )
@@ -29,8 +29,8 @@ mulib_lib = shared_library('mulib-' + api_version,
 install_headers(mulib_headers, subdir: 'mulib')
 
 pkg.generate(
-  description: 'A shared library for ...',
-  libraries: mulib_lib,
+  description: 'A data structures library for C',
+  libraries: mulib,
   name: 'mulib',
   filebase: 'mulib-' + api_version,
   version: meson.project_version(),
