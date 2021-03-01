@@ -41,6 +41,21 @@ with C easier. These could include:
 * Hash tables
 * Self-sizing strings
 
+### Performance
+
+`µlib` contains a work-in-progress benchmark suite that compares its performance
+against the widely use [GLib](https://wiki.gnome.org/Projects/GLib)
+cross-platform, low-level C library. Currently, the performance of creating a
+new singly-linked list of 2<sup>16</sup> integers is as follows:
+
+|`µlib`           | GLib            |
+|-----------------|-----------------|
+| `real	0m6.648s` | `real 0m3.091s` |
+| `user	0m6.632s` | `user 0m3.078s` |
+| `sys	0m0.004s` | `sys 0m0.006s`  |
+
+The measurements were run against GLib 2.66.7 with the Linux `time` utility.
+
 ### Installation
 
 `µlib` has no dependencies outside of the C standard library. Currently, it's
