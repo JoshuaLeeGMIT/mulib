@@ -1,4 +1,4 @@
-/* mu-str.c
+/* mu-arr.c
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,47 +18,33 @@
 
 #include <stdlib.h>
 
-#include "mu-arr-int.h"
+#include "mu-arr.h"
 
-static MuArrInt * 
-mu_arrint_init ()
+MuArr * 
+mu_arr_new (size_t dataTypeSize)
 {
-    MuArrInt *array;
-    array->size = 0;
+    MuArr *array;
+    array->dataTypeSize = dataTypeSize;
+    array->len = 0;
     return array;
 }
 
-MuArrInt * 
-mu_arrint_add (MuArrInt *array, int element)
+MuArr * 
+mu_arr_add (MuArr *array, void *element)
 {
     if (array == NULL)
     {
-        return mu_arrint_add(mu_arrint_init, element);
+        return NULL;
     }
     
-    array->size++;
-    array->array = realloc(array->array, (array->size * sizeof(int)));
-    memcpy((array->array + 1), &element, sizeof(element));
-    return array;
-}
-
-MuArrInt * 
-mu_arrint_add (MuArrInt *array, int elements[])
-{
-    if (array == NULL)
-    {
-        return mu_arrint_add(mu_arrint_init, elements);
-    }
-    
-    int nElements = (sizeof(elements) / sizeof(elements[0]));
-    array->size += nElements;
-    array->array = realloc(array->array, (array->size * sizeof(int)));
-    memcpy((array->array + nElements), elements, sizeof(elements));
+    array->len++;
+    array->array = realloc(array->array, (array->len * array->dataTypeSize));
+    memcpy((array->array + 1), element, array->dataTypeSize);
     return array;
 }
 
 void * 
-mu_arrint_free (MuArrInt *array)
+mu_arr_free (MuArr *array)
 {
     if (array == NULL){
         return;
