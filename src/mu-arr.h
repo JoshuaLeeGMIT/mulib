@@ -1,4 +1,4 @@
-/* mu-str.h
+/* mu-arr.h
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,16 +18,17 @@
 
 #pragma once
 
-typedef struct _MuArrInt MuArrInt;
+typedef struct _MuArr MuArr;
 
-struct _MuArrInt
+struct _MuArr
 {
-  size_t size;
-  int *array;
+  size_t len;
+  size_t dataTypeSize;
+  char *array;
 };
 
-MuArrInt * mu_arrint_add (MuArrInt *array, int element);
+MuArr * mu_arr_new (size_t dataTypeSize);
 
-MuArrInt * mu_arrint_add (MuArrInt *array, int *elements[]);
+MuArr * mu_arr_add (MuArr *array, void *element);
 
-void * mu_arrint_free (MuArrInt *array);
+void * mu_arr_free (MuArr *array);

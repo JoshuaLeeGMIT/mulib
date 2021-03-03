@@ -3,11 +3,13 @@ pkg = import('pkgconfig')
 api_version = '0.1'
 
 mulib_src = files(
+  'mu-arr.c',
   'mu-slist.c',
   'mu-str.c'
 )
 
 mulib_headers = [
+  'mu-arr.h',
   'mu-slist.h',
   'mu-str.h'
 ]
