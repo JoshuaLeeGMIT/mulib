@@ -20,14 +20,21 @@
 
 #include <glib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int
 main (int    argc,
       char **argv)
 {
+  int n;
   GSList *list;
 
-  for (int i = 0; i < 65536; i++)
+  if (argc != 2)
+    return 1;
+
+  n = strtod (*++argv, NULL);
+
+  for (int i = 0; i < n; i++)
     list = g_slist_append (list, GINT_TO_POINTER (i));
 
   return 0;

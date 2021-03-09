@@ -26,10 +26,16 @@ int
 main (int    argc,
       char **argv)
 {
+  int n;
   MuSList *list;
 
+  if (argc != 2)
+    return 1;
+
+  n = strtod (*++argv, NULL);
   list = mu_slist_new ((void *) (long) 0);
-  for (int i = 1; i < 65536; i++)
+
+  for (int i = 1; i < n; i++)
     list = mu_slist_append (list, (void *) (long) (i));
 
   return 0;
