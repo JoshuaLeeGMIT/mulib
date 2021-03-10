@@ -39,5 +39,7 @@ main (int    argc,
   for (int i = 1; i < n; i++)
     list = mu_slist_append (list, (void *) (long) (i));
 
+  mu_slist_free (list);
+
   return 0;
 }

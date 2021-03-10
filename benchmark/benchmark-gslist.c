@@ -37,5 +37,7 @@ main (int    argc,
   for (int i = 0; i < n; i++)
     list = g_slist_append (list, GINT_TO_POINTER (i));
 
+  g_slist_free (list);
+
   return 0;
 }
