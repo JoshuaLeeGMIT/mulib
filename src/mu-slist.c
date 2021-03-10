@@ -42,8 +42,8 @@ mu_slist_append (MuSList *list,
 }
 
 void
-mu_slist_free (MuSList *list,
-               void (*free_func) (void *))
+mu_slist_free_deep (MuSList *list,
+                    void (*free_func) (void *))
 {
   MuSList *cur;
 
@@ -55,6 +55,22 @@ mu_slist_free (MuSList *list,
       cur = list;
       list = list->next;
       free_func (cur->data);
+      free (cur);
+    }
+}
+
+void
+mu_slist_free (MuSList *list)
+{
+  MuSList *cur;
+
+  if (list == NULL)
+    return;
+
+  while (list->next)
+    {
+      cur = list;
+      list = list->next;
       free (cur);
     }
 }

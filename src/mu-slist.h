@@ -31,7 +31,9 @@ struct _MuSList
 MuSList *       mu_slist_append           (MuSList *list,
                                            void    *data);
 
-void            mu_slist_free             (MuSList *list,
+void            mu_slist_free             (MuSList *list);
+
+void            mu_slist_free_deep        (MuSList *list,
                                            void (*free_func) (void *));
 
 MuSList *       mu_slist_get_last         (MuSList *list);
