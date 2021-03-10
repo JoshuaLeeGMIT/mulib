@@ -46,13 +46,9 @@ with C easier. These could include:
 `µlib` contains a work-in-progress benchmark suite that compares its performance
 against the widely use [GLib](https://wiki.gnome.org/Projects/GLib)
 cross-platform, low-level C library. Currently, the performance of creating a
-new singly-linked list of 2<sup>16</sup> integers is as follows:
+new singly-linked list N integers is as follows:
 
-|`µlib`           | GLib            |
-|-----------------|-----------------|
-| `real	0m6.648s` | `real 0m3.091s` |
-| `user	0m6.632s` | `user 0m3.078s` |
-| `sys	0m0.004s` | `sys 0m0.006s`  |
+![Singly-linked lists performance](data/screenshots/singly-linked-list.png)
 
 The measurements were run against GLib 2.66.7 with the Linux `time` utility.
 
