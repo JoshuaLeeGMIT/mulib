@@ -31,4 +31,4 @@ MuArr * mu_arr_new (size_t dataTypeSize);
 
 MuArr * mu_arr_add (MuArr *array, void *element);
 
-void * mu_arr_free (MuArr *array);
+void mu_arr_free (MuArr *array);
