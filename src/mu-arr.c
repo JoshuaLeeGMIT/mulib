@@ -17,6 +17,7 @@
  */
 
 #include <stdlib.h>
+#include <string.h>
 
 #include "mu-arr.h"
 
@@ -38,12 +39,12 @@ mu_arr_add (MuArr *array, void *element)
     }
     
     array->len++;
-    array->array = realloc(array->array, (array->len * array->dataTypeSize));
+    array->array = realloc(array->array, (array->len * array->dataTypeSize)); //realloc will automatically allocate memory
     memcpy((array->array + 1), element, array->dataTypeSize);
     return array;
 }
 
-void * 
+void  
 mu_arr_free (MuArr *array)
 {
     if (array == NULL){
