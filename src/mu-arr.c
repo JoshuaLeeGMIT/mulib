@@ -21,10 +21,15 @@
 
 #include "mu-arr.h"
 
-MuArr * 
+#define DEFAULT_SIZ 16
+
+MuArr *
 mu_arr_new (size_t dataTypeSize)
 {
     MuArr *array;
+
+    array = malloc (dataTypeSize * DEFAULT_SIZ);
+
     array->dataTypeSize = dataTypeSize;
     array->len = 0;
     return array;
